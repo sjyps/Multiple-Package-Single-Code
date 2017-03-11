@@ -17,6 +17,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        dev {
+            applicationIdSuffix ".dev"
+            buildConfigField('String', 'HOST', '"http://www.dev.com"')
+        }
+        qa {
+            applicationIdSuffix ".qa"
+            buildConfigField('String', 'HOST', '"http://www.qa.com"')
+        }
+        production {
+            buildConfigField('String', 'HOST', '"http://www.production.com"')
+        }
+    }
 }
 
 dependencies {
